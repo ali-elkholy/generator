@@ -326,10 +326,7 @@
             <label for="companyName">Company Name:</label>
             <input type="text" id="companyName" class="form-control" required>
         </div>
-        <div class="form-group">
-            <label for="accNumber">Company ACC:</label>
-            <input type="text" id="accNumber" class="form-control" required>
-        </div>
+       
         <div class="form-group">
             <label for="startNumber">Extension:</label>
             <input type="number" id="startNumber" class="form-control" required>
@@ -339,7 +336,7 @@
             <input type="number" id="quantity" class="form-control" required>
         </div>
  <div class="form-group">
-            <label for="cloudNumber">رقم السحابة:</label>
+            <label for="cloudNumber">Cloud number:</label>
             <input type="number" id="cloudNumber" class="form-control">
         </div>
         <button type="button" class="btn btn-primary btn-block" onclick="generateData()">Generate <i class="fas fa-arrow-down"></i>
@@ -408,7 +405,6 @@
     // Main function to generate data
     function generateData() {
         const companyName = document.getElementById('companyName').value.trim();
-        const accNumber = document.getElementById('accNumber').value.trim();
         const startNumber = parseInt(document.getElementById('startNumber').value);
         const quantity = parseInt(document.getElementById('quantity').value);
         const cloudNumber = document.getElementById('cloudNumber').value;
@@ -454,7 +450,6 @@
         // Save data to localStorage
         localStorage.setItem('userData', JSON.stringify(data));
         localStorage.setItem('companyName', companyName);
-        localStorage.setItem('accNumber', accNumber);
         localStorage.setItem('startNumber', startNumber);
         localStorage.setItem('quantity', quantity);
         localStorage.setItem('cloudNumber', cloudNumber);
@@ -520,14 +515,12 @@
     window.onload = function() {
         const data = JSON.parse(localStorage.getItem('userData'));
         const companyName = localStorage.getItem('companyName');
-        const accNumber = localStorage.getItem('accNumber');
         const startNumber = localStorage.getItem('startNumber');
         const quantity = localStorage.getItem('quantity');
         const cloudNumber = localStorage.getItem('cloudNumber');
 
         if (data) {
             document.getElementById('companyName').value = companyName || '';
-            document.getElementById('accNumber').value = accNumber || '';
             document.getElementById('startNumber').value = startNumber || '';
             document.getElementById('quantity').value = quantity || '';
             document.getElementById('cloudNumber').value = cloudNumber || '';
