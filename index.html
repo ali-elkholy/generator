@@ -322,11 +322,11 @@
 
     <!-- Input Form -->
     <form id="form" data-aos="fade-right">
+        
         <div class="form-group">
-            <label for="companyName">Company Name:</label>
-            <input type="text" id="companyName" class="form-control" required>
+            <label for="accNumber">Company ACC:</label>
+            <input type="text" id="accNumber" class="form-control" required>
         </div>
-       
         <div class="form-group">
             <label for="startNumber">Extension:</label>
             <input type="number" id="startNumber" class="form-control" required>
@@ -336,7 +336,7 @@
             <input type="number" id="quantity" class="form-control" required>
         </div>
  <div class="form-group">
-            <label for="cloudNumber">Cloud number:</label>
+            <label for="cloudNumber">Cloud Number:</label>
             <input type="number" id="cloudNumber" class="form-control">
         </div>
         <button type="button" class="btn btn-primary btn-block" onclick="generateData()">Generate <i class="fas fa-arrow-down"></i>
@@ -405,6 +405,7 @@
     // Main function to generate data
     function generateData() {
         const companyName = document.getElementById('companyName').value.trim();
+       
         const startNumber = parseInt(document.getElementById('startNumber').value);
         const quantity = parseInt(document.getElementById('quantity').value);
         const cloudNumber = document.getElementById('cloudNumber').value;
@@ -511,16 +512,25 @@
         });
     }
 
+    function copyText(inputElement) {
+        navigator.clipboard.writeText(inputElement.value).then(() => {
+            inputElement.classList.add('copied-animation');
+            setTimeout(() => inputElement.classList.remove('copied-animation'), 300);
+        });
+    }
+
     // Load data on page load
     window.onload = function() {
         const data = JSON.parse(localStorage.getItem('userData'));
         const companyName = localStorage.getItem('companyName');
+     
         const startNumber = localStorage.getItem('startNumber');
         const quantity = localStorage.getItem('quantity');
         const cloudNumber = localStorage.getItem('cloudNumber');
 
         if (data) {
             document.getElementById('companyName').value = companyName || '';
+          
             document.getElementById('startNumber').value = startNumber || '';
             document.getElementById('quantity').value = quantity || '';
             document.getElementById('cloudNumber').value = cloudNumber || '';
@@ -553,6 +563,17 @@
             const username = input.getAttribute('data-username');
             input.value = sipPasswords[username] || ''; // Set the saved password or leave blank
         });
+
+        // Add event listeners to copy text from input fields
+        document.getElementById('fopLink').addEventListener('click', function() {
+            copyText(this);
+        });
+        document.getElementById('userAdminLink').addEventListener('click', function() {
+            copyText(this);
+        });
+        document.getElementById('reportsLink').addEventListener('click', function() {
+            copyText(this);
+        });
     };
 
     // Save SIP passwords to localStorage before leaving the page
@@ -566,6 +587,7 @@
         localStorage.setItem('sipPasswords', JSON.stringify(sipPasswords));
     };
 </script>
+
 
     
 </body>
