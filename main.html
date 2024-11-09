@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unofficial Tool for Bevatel</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+      body {
+        font-family: 'Cairo', sans-serif;
+        background-color: ghostwhite;
+        color: #333;
+      }
+
+      .container {
+        margin-top: 60px;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        color: #007bff;
+      }
+
+      label {
+        font-size: 0.9rem;
+        color: #333;
+        opacity: 0.7
+      }
+
+      table {
+        margin-top: 20px;
+      }
+
+      th {
+        font-size: 13px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+      }
+
+      th,
+      td {
+        cursor: pointer;
+        padding: 10px;
+      }
+
+      td:hover {
+        background-color: #e8f8ff;
+      }
+
+      .hover-highlight:hover {
+        background-color: #333;
+        color: white;
+        transition: 0.6s
+      }
+
+      .copied-animation {
+        animation: copied 0.3s ease-in-out;
+      }
+
+      @keyframes copied {
+        0% {
+          background-color: #333;
+        }
+
+        50% {
+          background-color: indianred;
+        }
+
+        100% {
+          background-color: #f8f9fa;
+        }
+      }
+
+      img {
+        width: 260px
+      }
+
+      .btn-primary {
+        border: none;
+        background-color: tomato;
+        border-radius: 5px;
+        color: white;
+        padding: 10px 20px;
+        font-weight: bold;
+        font-size: 1rem;
+        transition: 0.3s;
+        width: 30%;
+        margin: auto
+      }
+
+      .btn-primary:hover {
+        background: linear-gradient(45deg, #ff7043, #ff9100);
+        color:
+      }
+
+      tr:nth-child(even) {
+        background: linear-gradient(45deg, white, white);
+      }
+
+      tr:nth-child(odd) {
+        background: linear-gradient(45deg, tomato, tomato);
+        color: white
+      }
+
+      footer {
+        text-align: center;
+        padding: 10px;
+        background: #333;
+        color: #fff;
+        position: relative;
+        width: 100%;
+        bottom: 0;
+      }
+
+      .navbar {
+        background-color: #1a1a2e;
+        padding: 10px 20px;
+        border-bottom: 2px solid #0f3460;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .navbar-brand {
+        color: #e94560;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .navbar-nav {
+        margin: 0 auto;
+        /* Center the navbar items */
+      }
+
+      .navbar-nav .nav-link {
+        color: #fff;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .navbar-nav .nav-link:hover {
+        background-color: #e94560;
+        color: #fff;
+      }
+
+      .dropdown-menu {
+        background-color: #162447;
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .dropdown-item {
+        color: #fff;
+        padding: 5px 10px;
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .dropdown-item:hover {
+        background-color: #1f4068;
+        color: #e94560;
+      }
+    </style>
+  </head>
+  <body>
+    <body>
+         <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="index.html">
+          <i class="fas fa-tools"></i> Bevatel Tool </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <!-- Clouds Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="cloudsMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Clouds </a>
+              <div class="dropdown-menu" aria-labelledby="cloudsMenu" target="_blank">
+                <a class="dropdown-item" href="https://pbx.hojuzat.com/admin/config.php"target="_blank">Hojuzat</a>
+                <a class="dropdown-item" href="https://ucaas.go.com.sa/bevapbx/config.php?display=extensions&extdisplay=8166#"target="_blank">Ucass.1</a>
+                <a class="dropdown-item" href="https://ucaas2.go.com.sa/bevapbx/admin/config.php?display=configedit"target="_blank">Ucaas.2</a>
+                <a class="dropdown-item" href="http://go3.bevatel.com/bevapbx/admin/config.php"target="_blank">Ucaas.3</a>
+                <a class="dropdown-item" href="https://cloud.bevatel.com/admin/config.php?display=did"target="_blank">Cloud1</a>
+                <a class="dropdown-item" href="https://admin3.bavaya.com/config.php?type=setup&display=extensions&extdisplay=8006#"target="_blank">Cloud3</a>
+                <a class="dropdown-item" href="https://cloud4.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud4</a>
+                <a class="dropdown-item" href="https://cloud5.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud5</a>
+                <a class="dropdown-item" href="https://cloud6.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud6</a>
+                <a class="dropdown-item" href="https://cloud7.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud7</a>
+                <a class="dropdown-item" href="https://cloud8.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud8</a>
+                <a class="dropdown-item" href="https://cloud10.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud10</a>
+                <a class="dropdown-item" href="https://cloud11.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud11</a>
+                <a class="dropdown-item" href="https://cloud12.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud12</a>
+                <a class="dropdown-item" href="https://cloud13.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud13</a>
+                <a class="dropdown-item" href="https://cloud14.bevatel.com/admin/config.php?display=did"target="_blank">Cloud14</a>
+                <a class="dropdown-item" href="https://cloud15.bevatel.com/admin/config.php?display=queues&view=form&extdisplay=3001"target="_blank">Cloud15</a>
+                <a class="dropdown-item" href="https://cloud16.bevatel.com/bevapbx/admin/config.php?display=extensions"target="_blank">Cloud16</a>
+                <a class="dropdown-item" href="https://cloud17.bevatel.com/bevapbx/admin/config.php" target="_blank"target="_blank">Cloud17</a>
+              
+              </div>
+            </li>
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="fopMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Fop </a>
+              <div class="dropdown-menu" aria-labelledby="fopMenu">
+                <a class="dropdown-item" href="https://ucaas.go.com.sa/fop2/admin/pagebs.fop2users.php" target="_blank">UcassFOP.1</a>
+                <a class="dropdown-item" href="https://go2.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">UcassFOP2</a>
+                <a class="dropdown-item" href="https://pbx.hojuzat.com/fop2/admin/pagebs.fop2users.php" target="_blank">Hojuza FOP</a>
+                <a class="dropdown-item" href="https://cloud.bevatel.com/fop2/admin/index.php" target="_blank">FOP1</a>
+                <a class="dropdown-item" href="https://admin3.bavaya.com/live-panel/admin/" target="_blank">FOP3</a>
+                <a class="dropdown-item" href="https://cloud4.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP4</a>
+                <a class="dropdown-item" href="https://cloud5.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP5</a>
+                <a class="dropdown-item" href="https://cloud6.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP6</a>
+                <a class="dropdown-item" href="https://cloud7.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP7</a>
+                <a class="dropdown-item" href="https://cloud8.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP8</a>
+                <a class="dropdown-item" href="https://cloud10.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP10</a>
+                <a class="dropdown-item" href="https://cloud11.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP11</a>
+                <a class="dropdown-item" href="https://cloud12.bevatel.com/fop2/admin/" target="_blank">FOP12</a>
+                <a class="dropdown-item" href="https://cloud13.bevatel.com/fop2/admin/pagebs.fop2groups.php" target="_blank">FOP13</a>
+                <a class="dropdown-item" href="https://cloud14.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP14</a>
+                <a class="dropdown-item" href="https://cloud15.bevatel.com/fop2/admin/pagebs.fop2users.php" target="_blank">FOP15</a>
+                <a class="dropdown-item" href="https://cloud16.bevatel.com/fop2/admin/pagebs.fop2groups.php" target="_blank">FOP16</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="reportsMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Reports </a>
+              <div class="dropdown-menu" aria-labelledby="reportsMenu">
+                <a class="dropdown-item" href="https://ucaas.go.com.sa/stats/admin-users.php?dbgrid_action=list&dbgrid_pkhash=4e6c60bffd63ecfac7d22417dae863ef&dbgrid_notice=Record%20inserted" target="_blank">Ucass Reports.1</a>
+                <a class="dropdown-item" href="https://ucaas.go.com.sa/stats-ucaas2/admin-setup.php?dbgrid_action=list&dbgrid_pkhash=b22a4f49448a8d98387aec01c754b2ae&dbgrid_notice=Record%20inserted" target="_blank">Ucass Reports.2</a>
+                <a class="dropdown-item" href="https://pbx.hojuzat.com/stats/index.php?" target="_blank">Hojuzat Reports</a>
+                <a class="dropdown-item" href="https://cloud.bevatel.com/stats/admin-users.php?" target="_blank">Report.1</a>
+                <a class="dropdown-item" href="https://admin3.bavaya.com/stats/admin-users.php?dbgrid_page=1&dbgrid_pkhash=6aecb65afbf7a18510cce18f990dee01&id=110&dbgrid_action=show&dbgrid_search=cc7630" target="_blank">Report.3</a>
+                <a class="dropdown-item" href="https://cloud4.bevatel.com/stats/" target="_blank">Report.4</a>
+                <a class="dropdown-item" href="https://cloud5.bevatel.com/stats/index.php" target="_blank">Report.5</a>
+                <a class="dropdown-item" href="https://cloud6.bevatel.com/stats/" target="_blank">Report.6</a>
+                <a class="dropdown-item" href="https://cloud7.bevatel.com/stats/" target="_blank">Report.7</a>
+                <a class="dropdown-item" href="https://cloud8.bevatel.com/stats/" target="_blank">Report.8</a>
+                <a class="dropdown-item" href="https://cloud10.bevatel.com/stats/admin-users.php?dbgrid_action=list&dbgrid_pkhash=d5883871d7161d49c69c4c12d268c2d3&dbgrid_notice=Record%20inserted" target="_blank">Report.10</a>
+                <a class="dropdown-item" href="https://cloud4.bevatel.com/stats-cloud11/admin-users.php" target="_blank">Report.11</a>
+                <a class="dropdown-item" href="https://cloud12.bevatel.com/stats/" target="_blank">Report.12</a>
+                <a class="dropdown-item" href="https://cloud13.bevatel.com/stats/admin-users.php" target="_blank">Report.13</a>
+                <a class="dropdown-item" href="https://cloud5.bevatel.com/stats-cloud14/" target="_blank">Report.14</a>
+                <a class="dropdown-item" href="https://cloud5.bevatel.com/stats-cloud15/admin-setup.php" target="_blank">Report.15</a>
+                <a class="dropdown-item" href="https://cloud4.bevatel.com/stats-cloud16/" target="_blank">Report.16</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="firewallMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Firewall </a>
+              <div class="dropdown-menu" aria-labelledby="firewallMenu">
+                <a class="dropdown-item" href="https://pbx.hojuzat.com/firewall/" target="_blank">Houjazt</a>
+                <a class="dropdown-item" href="https://cloud.bevatel.com/firewall/" target="_blank">Cloud1</a>
+                <a class="dropdown-item" href="https://ucaas.go.com.sa/firewall/" target="_blank">UCass1</a>
+                <a class="dropdown-item" href="https://ucaas2.go.com.sa//firewall/" target="_blank">Ucass2</a>
+                <a class="dropdown-item" href="https://admin3.bavaya.com/firewall/" target="_blank">Cloud3</a>
+                <a class="dropdown-item" href="https://cloud4.bevatel.com/firewall/" target="_blank">Cloud4</a>
+                <a class="dropdown-item" href="https://cloud5.bevatel.com/firewall/" target="_blank">Cloud5</a>
+                <a class="dropdown-item" href="https://cloud6.bevatel.com/firewall/" target="_blank">Cloud6</a>
+                <a class="dropdown-item" href="https://cloud7.bevatel.com/firewall/" target="_blank">Cloud7</a>
+                <a class="dropdown-item" href="https://cloud8.bevatel.com/firewall/" target="_blank">Cloud8</a>
+                <a class="dropdown-item" href="https://cloud10.bevatel.com/firewall/" target="_blank">Cloud10</a>
+                <a class="dropdown-item" href="https://cloud11.bevatel.com/firewall/" target="_blank">CLoud11</a>
+                <a class="dropdown-item" href="https://cloud12.bevatel.com/firewall/" target="_blank">Cloud12</a>
+                <a class="dropdown-item" href="https://cloud13.bevatel.com/firewall/" target="_blank">Cloud13</a>
+                <a class="dropdown-item" href="https://cloud14.bevatel.com/firewall/" target="_blank">Cloud14</a>
+                <a class="dropdown-item" href="https://cloud15.bevatel.com/firewall/" target="_blank">Cloud15</a>
+                <a class="dropdown-item" href="https://cloud16.bevatel.com/firewall/" target="_blank">Cloud16</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="cloudsMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Tools </a>
+              <div class="dropdown-menu" aria-labelledby="tools">
+                <a class="dropdown-item" href="https://cliq.zoho.com/company/805890729/index.do"target="_blank">Cliq</a>
+                <a class="dropdown-item" href="https://support.bevatel.com/agent/bevatel/bevatel-call-center/tickets/list/all-cases"target="_blank">Tickets</a>
+                <a class="dropdown-item" href="https://db.bevatel.com/"target="_blank">Dashboard</a>
+                <a class="dropdown-item" href="https://cloud.bevatel.com/cloudsoftphone/admin/"target="_blank">Cloudsoftphone</a>
+                <a class="dropdown-item" href="https://chat.bevatel.com/app/accounts/1/team/2"target="_blank">Chat</a>
+                </div>
+            </li>
+            
+               <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="cloudsMenu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Location Info </a>
+              <div class="dropdown-menu" aria-labelledby="tools">
+                               <a id="locationInfo" class="dropdown-item"></a>
+
+                </div>
+            </li>
+                <li class="nav-item">
+                <a class="btn btn-danger " onclick="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    
+      <script></script>
+      <div class="container">
+        <h2 class="text-center" data-aos="fade-up">
+          <img src="download.png">
+        </h2>
+      
+        <form id="form" data-aos="fade-right">
+         <div class="form-group">
+            <label for="companyName">Company Name:</label>
+            <input type="text" id="companyName" class="form-control" required>
+        </div>
+          <div class="form-group">
+            <label for="startNumber">Extension:</label>
+            <input type="number" id="startNumber" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="cloudNumber">Cloud Number:</label>
+            <input type="number" id="cloudNumber" class="form-control">
+          </div>
+          <button type="button" class="btn btn-primary btn-block" onclick="generateData()">Generate <i class="fas fa-arrow-down"></i>
+          </button>
+        </form>
+      
+      </div>
+      <div class="container" data-aos="fade-up">
+        <div>
+          <table class="table table-bordered mt-3">
+            <thead>
+              <tr>
+                <th class="sip">
+                  <i class="fas fa-user"></i> SIP
+                </th>
+                <th class="sip">
+                  <i class="fas fa-lock"></i> SIP Password
+                </th>
+                <th class="Softphone">
+                  <i class="fas fa-phone"></i> Softphone Username
+                </th>
+                <th class="Softphone">
+                  <i class="fas fa-key"></i> Softphone Password
+                </th>
+                <th class="Dashboard">
+                  <i class="fas fa-tachometer-alt"></i> Dashboard Username
+                </th>
+                <th class="Dashboard">
+                  <i class="fas fa-key"></i> Dashboard Password
+                </th>
+                <th class="fop">
+                  <i class="fas fa-key"></i> FOP Password
+                </th>
+              </tr>
+            </thead>
+            <tbody id="resultsTable"></tbody>
+          </table>
+        </div>
+        <div id="linksContainer" class="mt-4">
+          <div class="form-group">
+            <label for="fopLink">FOP Link:</label>
+            <input type="text" id="fopLink" class="form-control mb-2" onclick="copyOnClick(this)" readonly>
+          </div>
+          <div class="form-group">
+            <label for="userAdminLink">User Admin Link:</label>
+            <input type="text" id="userAdminLink" class="form-control mb-2" onclick="copyOnClick(this)" readonly>
+          </div>
+          <div class="form-group">
+            <label for="reportsLink">Reports Link:</label>
+            <input type="text" id="reportsLink" class="form-control mb-2" onclick="copyOnClick(this)" readonly>
+          </div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+      <script>
+function checkLoginStatus() {
+    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+
+    // لو مفيش حالة تسجيل دخول أو حالة مش "true"
+    if (!isLoggedIn || isLoggedIn !== "true") {
+        alert('Access Denied. Please log in first.');
+        window.location.href = "login.html"; // هنوجه المستخدم لصفحة تسجيل الدخول
+    }
+}
+
+// استدعاء التحقق عند تحميل الصفحة
+checkLoginStatus();
+
+</script>
+      <script>
+        AOS.init();
+     
+        function generatePassword() {
+          const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+          let password = '';
+          for (let i = 0; i < 10; i++) {
+            password += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          return password;
+        }
+     
+        function generateData() {
+          const companyName = document.getElementById('companyName').value.trim();
+          const startNumber = parseInt(document.getElementById('startNumber').value);
+          const quantity = parseInt(document.getElementById('quantity').value);
+          const cloudNumber = document.getElementById('cloudNumber').value;
+          const resultsTable = document.getElementById('resultsTable');
+          resultsTable.innerHTML = ''; // Clear previous results
+          let data = [];
+          for (let i = 0; i < quantity; i++) {
+            const sipUsername = startNumber + i;
+            const sipPassword = ''; // Leave blank for manual input
+            const softphoneUsername = `${sipUsername}-${companyName}`;
+            const softphonePassword = generatePassword();
+            const dashboardUsername = `cc${softphoneUsername}`;
+            const dashboardPassword = generatePassword();
+            const fopPassword = generatePassword();
+            const row = `
+																				<tr>
+																					<td class="hover-highlight" onclick="copyToClipboard('${sipUsername}')">${sipUsername}</td>
+																					<td>
+																						<input type="text" placeholder="Enter password" class="form-control sipPassword" data-username="${sipUsername}" required>
+																						</td>
+																						<td class="hover-highlight" onclick="copyToClipboard('${softphoneUsername}')">${softphoneUsername}</td>
+																						<td class="hover-highlight" onclick="copyToClipboard('${softphonePassword}')">${softphonePassword}</td>
+																						<td class="hover-highlight" onclick="copyToClipboard('${dashboardUsername}')">${dashboardUsername}</td>
+																						<td class="hover-highlight" onclick="copyToClipboard('${dashboardPassword}')">${dashboardPassword}</td>
+																						<td class="hover-highlight" onclick="copyToClipboard('${fopPassword}')">${fopPassword}</td>
+																					</tr>`;
+            resultsTable.insertAdjacentHTML('beforeend', row);
+            data.push({
+              sipUsername,
+              softphoneUsername,
+              softphonePassword,
+              dashboardUsername,
+              dashboardPassword,
+              fopPassword
+            });
+          }
+          generateLinks(cloudNumber);
+          setTimeout(() => document.getElementById("resultsTable").scrollIntoView({
+            behavior: "smooth"
+          }), 300); // Scroll to table
+          localStorage.setItem('userData', JSON.stringify(data));
+          localStorage.setItem('companyName', companyName);
+          localStorage.setItem('startNumber', startNumber);
+          localStorage.setItem('quantity', quantity);
+          localStorage.setItem('cloudNumber', cloudNumber);
+          // Save links to localStorage
+          saveLinksToLocalStorage();
+        }
+
+        function generateLinks(cloudNumber) {
+        
+
+
+
+
+const cloudLinks = {
+  "1": {
+    fop: "https://cloud.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud.bevatel.com/useradmin/13",
+    reports: "https://cloud.bevatel.com/stats/stats-login.php"
+  },
+  "2": {
+    fop: "https://go2.bevatel.com/fop2/autologin.php",
+    userAdmin: "https://go2.bevatel.com/useradmin/",
+    reports: "https://ucaas.go.com.sa/stats-ucaas2/autologin.php"
+  },
+  "3": {
+    fop: "https://admin3.bavaya.com/live-panel/fop-login.php",
+    userAdmin: "https://cloud3.bevatel.com/useradmin/",
+    reports: "https://cloud3.bevatel.com/advanced-reports/autologin.php"
+  },
+  "4": {
+    fop: "https://cloud4.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud4.bevatel.com/useradmin/13",
+    reports: "https://cloud4.bevatel.com/stats/autologin.php"
+  },
+  "5": {
+    fop: "https://cloud5.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud5.bevatel.com/useradmin/16",
+    reports: "https://cloud5.bevatel.com/stats-cloud15/autologin.php"
+  },
+  "6": {
+    fop: "https://cloud6.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud6.bevatel.com/useradmin/13",
+    reports: "https://cloud6.bevatel.com/stats/autologin.php"
+  },
+  "7": {
+    fop: "https://cloud7.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud7.bevatel.com/useradmin/16",
+    reports: "https://cloud7.bevatel.com/stats/stats-login.php"
+  },
+  "8": {
+    fop: "https://cloud8.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud8.bevatel.com/useradmin/13",
+    reports: "https://cloud8.bevatel.com/stats/stats-login.php"
+  },
+  "10": {
+    fop: "https://cloud10.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud10.bevatel.com/useradmin/13",
+    reports: "https://cloud10.bevatel.com/stats/stats-login.php"
+  },
+  "11": {
+    fop: "https://cloud11.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud11.bevatel.com/useradmin/16",
+    reports: "https://cloud4.bevatel.com/stats-cloud11/autologin.php"
+  },
+  "12": {
+    fop: "https://cloud11.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud11.bevatel.com/useradmin/16",
+    reports: "https://cloud4.bevatel.com/stats-cloud11/autologin.php"
+  },
+  "13": {
+    fop: "https://cloud11.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud11.bevatel.com/useradmin/16",
+    reports: "https://cloud4.bevatel.com/stats-cloud11/autologin.php"
+  },
+  "14": {
+    fop: "https://cloud14.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud14.bevatel.com/useradmin/16",
+    reports: "https://cloud5.bevatel.com/stats-cloud14/autologin.php"
+  },
+  "15": {
+    fop: "https://cloud15.bevatel.com/fop2/fop-login.php",
+    userAdmin: "https://cloud15.bevatel.com/useradmin/16",
+    reports: "https://cloud5.bevatel.com/stats-cloud15/autologin.php"
+  },
+  "16": {
+    fop: "https://cloud16.bevatel.com/fop2/autologin.php",
+    userAdmin: "https://cloud16.bevatel.com/useradmin",
+    reports: "https://cloud4.bevatel.com/stats-cloud16/autologin.php"
+  },
+  "17": {
+    fop: "https://cloud17.bevatel.com/fop2/autologin.php",
+    userAdmin: "https://cloud17.bevatel.com/useradmin/16",
+    reports: "https://cloud6.bevatel.com/stats-cloud17/autologin.php"
+  }
+};
+
+
+
+          const links = cloudLinks[cloudNumber];
+          if (links) {
+            document.getElementById('fopLink').value = links.fop || '';
+            document.getElementById('userAdminLink').value = links.userAdmin || '';
+            document.getElementById('reportsLink').value = links.reports || '';
+            document.getElementById('linksContainer').style.display = 'block';
+          } else {
+            document.getElementById('linksContainer').style.display = 'none';
+          }
+        }
+
+        function saveLinksToLocalStorage() {
+          const fopLink = document.getElementById('fopLink').value;
+          const userAdminLink = document.getElementById('userAdminLink').value;
+          const reportsLink = document.getElementById('reportsLink').value;
+          localStorage.setItem('fopLink', fopLink);
+          localStorage.setItem('userAdminLink', userAdminLink);
+          localStorage.setItem('reportsLink', reportsLink);
+        }
+        // Copy content to clipboard and show animation
+        function copyToClipboard(text) {
+          navigator.clipboard.writeText(text).then(() => {
+            const rows = document.querySelectorAll('td');
+            rows.forEach(row => {
+              if (row.textContent === text) {
+                row.classList.add('copied-animation');
+                setTimeout(() => row.classList.remove('copied-animation'), 300);
+              }
+            });
+          });
+        }
+
+        function copyText(inputElement) {
+          navigator.clipboard.writeText(inputElement.value).then(() => {
+            inputElement.classList.add('copied-animation');
+            setTimeout(() => inputElement.classList.remove('copied-animation'), 300);
+          });
+        }
+     
+        window.onload = function() {
+          const data = JSON.parse(localStorage.getItem('userData'));
+          const companyName = localStorage.getItem('companyName');
+          const startNumber = localStorage.getItem('startNumber');
+          const quantity = localStorage.getItem('quantity');
+          const cloudNumber = localStorage.getItem('cloudNumber');
+          if (data) {
+            document.getElementById('companyName').value = companyName || '';
+            document.getElementById('startNumber').value = startNumber || '';
+            document.getElementById('quantity').value = quantity || '';
+            document.getElementById('cloudNumber').value = cloudNumber || '';
+            const resultsTable = document.getElementById('resultsTable');
+            resultsTable.innerHTML = '';
+            data.forEach(row => {
+              const htmlRow = `
+																					<tr>
+																						<td class="hover-highlight" onclick="copyToClipboard('${row.sipUsername}')">${row.sipUsername}</td>
+																						<td>
+																							<input type="text" placeholder="Enter password" class="form-control sipPassword" data-username="${row.sipUsername}" required>
+																							</td>
+																							<td class="hover-highlight" onclick="copyToClipboard('${row.softphoneUsername}')">${row.softphoneUsername}</td>
+																							<td class="hover-highlight" onclick="copyToClipboard('${row.softphonePassword}')">${row.softphonePassword}</td>
+																							<td class="hover-highlight" onclick="copyToClipboard('${row.dashboardUsername}')">${row.dashboardUsername}</td>
+																							<td class="hover-highlight" onclick="copyToClipboard('${row.dashboardPassword}')">${row.dashboardPassword}</td>
+																							<td class="hover-highlight" onclick="copyToClipboard('${row.fopPassword}')">${row.fopPassword}</td>
+																						</tr>`;
+              resultsTable.insertAdjacentHTML('beforeend', htmlRow);
+            });
+            
+            document.getElementById('fopLink').value = localStorage.getItem('fopLink') || '';
+            document.getElementById('userAdminLink').value = localStorage.getItem('userAdminLink') || '';
+            document.getElementById('reportsLink').value = localStorage.getItem('reportsLink') || '';
+          }
+         
+          const sipPasswords = JSON.parse(localStorage.getItem('sipPasswords')) || {};
+          const sipPasswordInputs = document.querySelectorAll('.sipPassword');
+          sipPasswordInputs.forEach(input => {
+            const username = input.getAttribute('data-username');
+            input.value = sipPasswords[username] || ''; // Set the saved password or leave blank
+          });
+          // Add event listeners to copy text from input fields
+          document.getElementById('fopLink').addEventListener('click', function() {
+            copyText(this);
+          });
+          document.getElementById('userAdminLink').addEventListener('click', function() {
+            copyText(this);
+          });
+          document.getElementById('reportsLink').addEventListener('click', function() {
+            copyText(this);
+          });
+        };
+     
+        window.onbeforeunload = function() {
+          const sipPasswords = {};
+          const sipPasswordInputs = document.querySelectorAll('.sipPassword');
+          sipPasswordInputs.forEach(input => {
+            const username = input.getAttribute('data-username');
+            sipPasswords[username] = input.value; // Save the entered password
+          });
+          localStorage.setItem('sipPasswords', JSON.stringify(sipPasswords));
+        };
+      </script>
+        <script src="script.js"></script>
+    </body>
+</html>
