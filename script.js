@@ -10,7 +10,7 @@
         const isLoggedIn = sessionStorage.getItem("isLoggedIn");
         if (!isLoggedIn || isLoggedIn !== "true") {
             alert('Access Denied. Please log in first.');
-            window.location.href = "login.html";
+            window.location.href = "index.html";
         }
     }
 
