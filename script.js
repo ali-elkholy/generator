@@ -2,7 +2,7 @@
     // دالة تسجيل الخروج
     function logout() {
         sessionStorage.removeItem("isLoggedIn");
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     }
 
     // دالة التحقق من حالة تسجيل الدخول
